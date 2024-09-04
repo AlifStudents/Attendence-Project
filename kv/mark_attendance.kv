@@ -1,0 +1,117 @@
+#:kivy 2.1.0
+#:import MDLabel kivymd.uix.label.MDLabel
+#:import Camera kivy.uix.camera.Camera
+#:import BoxLayout kivy.uix.boxlayout.BoxLayout
+#:import GridLayout kivy.uix.gridlayout.GridLayout
+#:import MDRaisedButton kivymd.uix.button.MDRaisedButton
+#:import MDIcon kivymd.uix.label.MDIcon
+#:import MDCard kivymd.uix.card.MDCard
+
+<MarkAttendance>:
+    name: 'mark_attendance'
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: [10, 10, 10, 10]
+        spacing: 20
+        canvas.before:
+            # Adding a background gradient
+            Color:
+                rgba: (0.1, 0.1, 0.2, 1)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        # Header with a back button
+        BoxLayout:
+            size_hint_y: None
+            height: '60dp'
+            spacing: 10
+            padding: [10, 5, 10, 5]
+            md_bg_color: [0.05, 0.05, 0.1, 1]
+
+            MDRaisedButton:
+                text: 'Back'
+                size_hint_x: None
+                width: '80dp'
+                on_release: app.root.current = 'landing_page'  # Replace 'previous_page' with the actual name of the previous page
+                md_bg_color: [0.2, 0.6, 0.9, 1]  # Cool blue color for the button
+                text_color: 1, 1, 1, 1
+                elevation: 10
+                radius: [20, 20, 20, 20]
+
+        GridLayout:
+            cols: 2
+            rows: 1
+            spacing: 10
+            padding: [10, 10, 10, 10]
+
+            # Camera View with increased width and height
+            Camera:
+                id: camera
+                play: True
+                resolution: (640, 480)
+                size_hint_x: 0.65  # Increased width
+                size_hint_y: 1.1   # Increased height for more space
+                frame_rate: 30
+
+            # Details Box with reduced height
+            MDCard:
+                orientation: 'vertical'
+                padding: [20, 20, 20, 20]
+                size_hint_x: 0.35  # Reduced width
+                size_hint_y: 0.9   # Reduced height
+                elevation: 12
+                md_bg_color: [0, 0, 0, 0.5]  # Semi-transparent background
+                radius: [25, 25, 25, 25]
+
+                # Neon gradient border with proper layering
+                canvas.before:
+                    Color:
+                        rgba: 0, 0, 0, 0  # Transparent fill color
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [25, 25, 25, 25]
+                    Color:
+                        rgba: 0, 0.5, 1, 1  # Neon blue start
+                    Line:
+                        width: 2
+                        rounded_rectangle: (self.x, self.y, self.width, self.height, 25)
+                    Color:
+                        rgba: 1, 0, 1, 1  # Neon purple end
+                    Line:
+                        width: 2
+                        rounded_rectangle: (self.x, self.y, self.width, self.height, 25)
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    padding: [10, 0, 0, 0]
+
+                    BoxLayout:
+                        orientation: 'vertical'
+                        spacing: 10
+                        padding: [10, 10, 10, 10]
+
+                        MDLabel:
+                            text: 'Name: Mishal'
+                            halign: 'left'
+                            theme_text_color: 'Primary'
+                            size_hint_y: None
+                            height: '40dp'
+
+                        MDLabel:
+                            text: 'Admission No: 3724'
+                            halign: 'left'
+                            theme_text_color: 'Primary'
+                            size_hint_y: None
+                            height: '40dp'
+
+                    # Adding the icon on the top right
+                    MDIcon:
+                        icon: 'book-open-page-variant-outline'
+                        theme_text_color: 'Custom'
+                        text_color: [1, 0.8, 0.3, 1]  # Gold color for the icon
+                        size_hint: None, None
+                        size: 50, 50
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.8}

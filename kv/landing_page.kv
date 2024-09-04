@@ -1,0 +1,63 @@
+#:kivy 2.1.0
+ 
+#:import MDLabel kivymd.uix.label.MDLabel
+#:import MDRaisedButton kivymd.uix.button.MDRaisedButton
+#:import MDTextField kivymd.uix.textfield.MDTextField
+
+<LandingPage>:
+    name: 'landing_page'
+    FloatLayout:
+   
+     
+
+        Image:
+            source: 'assets/logo.png'  
+            size_hint: None,None
+            size: 275,250
+            pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+
+     
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 2
+            size_hint: None, None
+            size: 500, 400  
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}  
+           
+
+            MDTextField:
+                id: username
+                hint_text: 'Username'
+                line_color_focus: [1, 0.84, 0, 1]
+                size_hint_y: None
+                height: 45
+                padding_x: 12
+
+            MDTextField:
+                id: password
+                hint_text: 'Password'
+                line_color_focus: [1, 0.84, 0, 1]
+                password: True
+                size_hint_y: None
+                height: 40
+                padding_x: 10
+
+            MDRaisedButton:
+                text: 'Login'
+                size_hint: None, None
+
+                size: dp(100), dp(50)
+                md_bg_color: '#2e4fc6'
+                on_release: root.login()
+ 
+
+
+         
+
+        ImageButton:
+            source: 'assets/camera_icon.jpeg'
+            size_hint: None, None
+            size: 100, 100
+            pos_hint: {'right': 0.95, 'bottom': 0.5}
+            on_release: app.root.current = 'mark_attendance'
