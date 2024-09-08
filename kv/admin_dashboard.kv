@@ -1,11 +1,78 @@
-#:kivy 2.1.0
-
 <AdminDashboard>:
     name: 'admin_dashboard'
-    MDLabel:
-         
-        size_hint: None, None
-        size: 200, 40
-        text: "welcome admin"
-        pos_hint: {'left': 1, 'y': 0.9}
-        padding_x: 20
+    FloatLayout:
+        # REGISTER button on the left
+        Button:
+            text: "REGISTER"
+            size_hint: 0.2, 0.05
+            pos_hint: {'left': 0, 'y': 0.95}
+            background_color: 0.8, 1, 0.8, 1
+            color: 0, 0, 0, 1
+
+        FloatLayout
+            pos_hint: {'left': 0, 'y': 0.60}
+            size_hint: 0.2, 0.05
+            BoxLayout
+                orientation:'vertical'
+                Label:
+                    text: "Class: 9"
+                    size_hint: None, None
+                    size: 200, 50
+                    pos_hint: {'left': 0.015, 'bottom': 0.65}  # Position below the top-left labels
+                    font_size: 24
+                    color: 0, 0, 0, 1
+
+                Label:
+                    text: "Division: F"
+                    size_hint: None, None
+                    size: 200, 50
+                    pos_hint: {'left': 0.01, 'bottom': 0.55}  # Adjust the 'bottom' value to position below the first below label
+                    font_size: 24
+                    color: 0, 0, 0, 1
+
+                Label:
+                    text: "Strength: 17"
+                    size_hint: None, None
+                    size: 200, 50
+                    pos_hint: {'left': 0.01, 'bottom': 0.55}  # Adjust the 'bottom' value to position below the first below label
+                    font_size: 24
+                    color: 0, 0, 0, 1
+                    
+        # BoxLayout for the right-side buttons
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: 0.8, 0.05
+            pos_hint: {'right': 1, 'y': 0.95}
+            spacing: 10
+
+            Button:
+                text: "View attendance"
+                size_hint: 0.6, 1
+                background_color: 0.8, 1, 0.8, 1
+                color: 0, 0, 0, 1
+
+            Button:
+                text: "Another Action"
+                size_hint: 0.4, 1
+                background_color: 0.8, 1, 0.8, 1
+                color: 0, 0, 0, 1
+
+                
+
+        # Centered Labels
+        MDLabel:
+            text: "Welcome,"
+            size_hint: None, None
+             
+            size: 300, 10  # Width and height of the label
+            pos_hint: {'center_x': 0.5, 'center_y': 0.55}
+            font_size: 40
+            color: 0, 0, 0, 1
+
+        MDLabel:
+            text: "Mr. Nizamudheen"
+            size_hint: None, None
+            size: 300, 10  # Width and height of the label
+            pos_hint: {'center_x': 0.5, 'center_y': 0.45} 
+            font_size: 30
+            color: 0, 0, 0, 1

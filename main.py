@@ -31,7 +31,7 @@ class AttendanceApp(MDApp):
            sm.add_widget(MarkAttendance(name='mark_attendance'))
 
 
-           sm.current = 'landing_page'
+           sm.current = 'admin_dashboard'
            return sm
      
 if __name__ == '__main__':
